@@ -22,14 +22,19 @@ Or install it yourself as:
 ## Usage
 
 Time.now.solar_term
+
 Time.now.solar_term_name
+
 Time.now.solar_term_time
 
 Date.today.solar_term
+
 Date.today.solar_term_name
+
 Date.today.solar_term_time
 
 Time.new(2012,11,22,5,50,07,"+08:00").solar_term \# return 21
+
 Time.new(2012,11,22,5,50,07,"+08:00").solar_term_name \# return 小雪
 
 ## Contributing
