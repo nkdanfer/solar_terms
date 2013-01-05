@@ -1,6 +1,6 @@
 # encoding: utf-8
 require File.expand_path('../solar_terms/version', __FILE__)
-
+require 'date'
 module SolarTerms
   # Timezone: +08:00
   TERM_NAMES = ["小寒","大寒","立春","雨水","惊蛰","春分","清明","谷雨","立夏","小满","芒种","夏至","小暑","大暑","立秋","处暑","白露","秋分","寒露","霜降","立冬","小雪","大雪","冬至"]
@@ -66,7 +66,7 @@ module SolarTerms
   end
 
   def solar_term_seconds
-    self.utc.to_i - solar_term_time.to_i
+    self.to_time.utc.to_i - solar_term_time.to_i
   end
 
   def solar_term_minutes
@@ -83,7 +83,7 @@ module SolarTerms
 
   private
   def index_of_all_terms
-    t = self.respond_to?(:to_time) ? self.to_time : self
+    t = self.to_time
     v = solar_term_times.select{|time| time >= t.utc }.first
     v == t.utc ? solar_term_times.index(v) : solar_term_times.index(v) - 1
   end
@@ -95,4 +95,4 @@ end
 
 Date.class_eval { include ::SolarTerms }
 Time.class_eval { include ::SolarTerms }
-DateTime.class_eval { include ::SolarTerms } if defined?(DateTime)
+DateTime.class_eval { include ::SolarTerms }
