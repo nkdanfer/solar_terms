@@ -65,6 +65,22 @@ module SolarTerms
     solar_term_times[index_of_all_terms]
   end
 
+  def solar_term_seconds
+    self.utc.to_i - solar_term_time.to_i
+  end
+
+  def solar_term_minutes
+    solar_term_seconds / 60.0
+  end
+
+  def solar_term_hours
+    solar_term_seconds / 3600.0
+  end
+
+  def solar_term_days
+    solar_term_seconds / 86400.0
+  end
+
   private
   def index_of_all_terms
     t = self.respond_to?(:to_time) ? self.to_time : self
