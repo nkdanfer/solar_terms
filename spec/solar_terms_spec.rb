@@ -4,7 +4,7 @@ require "rspec"
 
 describe "SolarTerms" do
   before :each do
-    @current_time = Time.new(2012,11,22,5,50,9,"+08:00")
+    @current_time = Time.new(2012,11,22,5,50,5,"+08:00")
   end
 
   context 'solar_term' do

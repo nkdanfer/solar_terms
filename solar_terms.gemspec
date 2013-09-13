@@ -14,4 +14,6 @@ Gem::Specification.new do |gem|
   gem.name          = "solar_terms"
   gem.require_paths = ["lib"]
   gem.version       = SolarTerms::VERSION
+
+  gem.add_development_dependency 'rspec'
 end
